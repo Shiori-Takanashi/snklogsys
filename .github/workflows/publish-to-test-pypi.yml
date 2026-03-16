@@ -1,7 +1,7 @@
 name: Publish-TestPyPI
 
 on:
-  push: main
+  push: [main]
 
 jobs:
   build:
