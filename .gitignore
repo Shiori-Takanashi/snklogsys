@@ -4,11 +4,11 @@ __pycache__/
 build/
 dist/
 wheels/
-*.egg-info
+*.egg-info/
 
 # Virtual environments
-.venv
-.docs
-.ruff_cache
-.mypy_cache
-.pytest_cache
+.venv/
+.docs/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
