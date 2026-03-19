@@ -5,32 +5,33 @@ SH_NAME = "stream-h"
 FH_NAME = "file-h"
 
 
-def find_stream_handler(logger: Logger, h_name: str = SH_NAME) -> StreamHandler | None:
+def build_stream_handler(logger: Logger, sh_name: str = SH_NAME) -> StreamHandler:
+    target_handlers = []
     for h in logger.handlers:
-        if getattr(h, "name", None) == h_name:
-            if type(h) is StreamHandler:
-                return h
-    return None
+        if (getattr(h, "name", None) == sh_name) and (type(h) is StreamHandler):
+            target_handlers.append(h)
 
+    for h in target_handlers:
+        logger.removeHandler(h)
 
-def find_file_handler(logger: Logger, h_name: str = FH_NAME) -> FileHandler | None:
-    for h in logger.handlers:
-        if getattr(h, "name", None) == h_name:
-            if type(h) is FileHandler:
-                return h
-    return None
-
-
-def build_stream_handler(h_name: str = SH_NAME) -> StreamHandler:
     sh = StreamHandler()
-    sh.set_name(h_name)
+    sh.set_name(sh_name)
     return sh
 
 
-def build_file_handler(filepath: Path, h_name: str = FH_NAME) -> FileHandler:
-    fh = FileHandler(
-        filepath,
-        encoding="utf-8",
-    )
-    fh.set_name(h_name)
+def build_file_handler(
+    logger: Logger,
+    filepath: Path,
+    fh_name: str = FH_NAME,
+) -> FileHandler:
+    target_handlers = []
+    for h in logger.handlers:
+        if (getattr(h, "name", None) == fh_name) and (type(h) is FileHandler):
+            target_handlers.append(h)
+
+    for h in target_handlers:
+        logger.removeHandler(h)
+
+    fh = FileHandler(filepath, encoding="utf-8")
+    fh.set_name(fh_name)
     return fh
