@@ -7,7 +7,9 @@ authors = [
     { name = "Takanashi", email = "nao69alter@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "pre-commit>=4.5.1",
+]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
 
