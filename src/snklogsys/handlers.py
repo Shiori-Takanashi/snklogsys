@@ -13,6 +13,7 @@ def build_stream_handler(logger: Logger, sh_name: str = SH_NAME) -> StreamHandle
 
     for h in target_handlers:
         logger.removeHandler(h)
+        h.close()
 
     sh = StreamHandler()
     sh.set_name(sh_name)
@@ -31,6 +32,7 @@ def build_file_handler(
 
     for h in target_handlers:
         logger.removeHandler(h)
+        h.close()
 
     fh = FileHandler(filepath, encoding="utf-8")
     fh.set_name(fh_name)
