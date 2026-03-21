@@ -274,23 +274,21 @@ wheels = [
 name = "snklogsys"
 version = "0.0.2"
 source = { editable = "." }
-dependencies = [
-    { name = "pre-commit" },
-]
 
 [package.dev-dependencies]
 dev = [
     { name = "mypy" },
+    { name = "pre-commit" },
     { name = "pytest" },
     { name = "ruff" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pre-commit", specifier = ">=4.5.1" }]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "mypy", specifier = ">=1.19.1" },
+    { name = "pre-commit", specifier = ">=4.5.1" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "ruff", specifier = ">=0.15.6" },
 ]
