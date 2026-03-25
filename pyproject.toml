@@ -1,6 +1,6 @@
 [project]
 name = "snklogsys"
-version = "0.0.4"
+version = "0.0.5"
 description = "Pythonの標準モジュールのみの簡易的なlogツール"
 readme = "README.md"
 authors = [
