@@ -2,8 +2,8 @@ name: Publish-TestPyPI
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*"
 
 jobs:
   build:
