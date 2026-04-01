@@ -1,5 +1,6 @@
 [project]
 name = "snklogsys"
+version = "v-debug-todo"
 description = "Pythonの標準モジュールのみの簡易的なlogツール"
 readme = "README.md"
 authors = [
